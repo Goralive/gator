@@ -72,7 +72,9 @@ func handlerUsers(s *state, cmd command) error {
 			fmt.Printf("* %s (current)\n", user.Name)
 			continue
 		}
+
 		fmt.Printf("* %s\n", user.Name)
+
 	}
 	return nil
 }
