@@ -16,7 +16,7 @@ func handlerAddFeed(s *state, cmd command) error {
 	}
 
 	if len(cmd.Args) != 2 {
-		return fmt.Errorf("usaage: %s <name> <url>", cmd.Name)
+		return fmt.Errorf("usage: %s <name> <url>", cmd.Name)
 	}
 
 	name := cmd.Args[0]
@@ -31,19 +31,19 @@ func handlerAddFeed(s *state, cmd command) error {
 		Url:       url,
 	})
 	if err != nil {
-		return fmt.Errorf("couldn't create fead: %w", err)
+		return fmt.Errorf("couldn't create feed: %w", err)
 	}
 
-	fmt.Println("Feed created")
-	printFeed(feed)
-	return nil
-}
+	fmt.Println("Feed created successfully:")
+	fmt.Printf("* ID:            %s\n", feed.ID)
+	fmt.Printf("* Created:       %v\n", feed.CreatedAt)
+	fmt.Printf("* Updated:       %v\n", feed.UpdatedAt)
+	fmt.Printf("* Name:          %s\n")
+	fmt.Printf("* URL:           %s\n", feed.Url)
+	fmt.Printf("* UserID:        %s\n", feed.UserID)
 
-func printFeed(feed database.CreateFeadParams) {
-	fmt.Printf("- ID: %s\n", feed.ID)
-	fmt.Printf("- Created: %s\n", feed.CreatedAt)
-	fmt.Printf("- Updated: %s\n", feed.UpdatedAt)
-	fmt.Printf("- Name: %s\n", feed.Name)
-	fmt.Printf("- URL: %s\n", feed.Url)
-	fmt.Printf("- UserID: %s\n", feed.UserID)
+	fmt.Println()
+	fmt.Println("=====================================")
+
+	return nil
 }
