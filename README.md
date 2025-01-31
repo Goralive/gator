@@ -1,6 +1,7 @@
 # CLI Blog aggregator
 
 Just learn by doing project.
+
 Goal is to practice SQL
 
 1. Should be define `.gatorconfig.json` in your root folder
